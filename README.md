@@ -1,7 +1,6 @@
 # BreatheSync_
 BreatheSync is an intelligent sleep-monitoring solution designed to predict potential sleep apnea events 30–60 seconds before they occur, shifting from reactive detection to proactive intervention.
-# BreatheSync
-*Better breath, deeper sleep, brighter tomorrows.*
+
 
 Apnea detection and one-minute early warning from a single-lead ECG.
 
@@ -96,32 +95,30 @@ To smoke-test without downloading, run `python tests/make_synthetic.py`, which w
 ## Models used
 LightGBM gradient-boosted decision trees (400 trees, learning rate 0.03), trained from scratch on hand-crafted physiological features. No pre-trained models.
 
-## Results
-Held-out patients only. TODO: fill from `results/metrics.json`.
+Held-out patients only (records a07, a12, a17, b02, c03, c08). Results from results/metrics.json.
 
 | Metric | Single-minute baseline | BreatheSync detector |
 |---|---|---|
-| Accuracy | | |
-| Sensitivity | | |
-| Specificity | | |
-| F1 | | |
-| AUROC | | |
-| Brier / ECE | | |
+| Accuracy | 0.736 | 0.846 |
+| Sensitivity | 0.961 | 0.945 |
+| Specificity | 0.609 | 0.790 |
+| F1 | 0.725 | 0.816 |
+| AUROC | 0.911 | 0.950 |
+| Brier / ECE | 0.116 / 0.042 | 0.081 / 0.027 |
 
-| Event-level (mean over patients) | Value |
+| Event-level (pooled over all 57 true events) | Value |
 |---|---|
-| Event precision / recall / F1 | |
-| Mean temporal overlap (IoU) | |
-| Onset / offset timing error (min) | |
-| Per-patient F1 (mean ± sd, range) | |
+| Event precision / recall / F1 | 0.522 / 0.877 / 0.654 |
+| Median temporal overlap (IoU) | 0.183 |
+| Median onset / offset timing error (min) | 25.0 / 8.5 |
+| Per-patient minute F1 (apnea patients, mean ± sd, range) | 0.772 ± 0.176, 0.586–0.971 |
 
 | Early warning | Value |
 |---|---|
-| AUROC, currently-normal minutes | |
-| Onsets warned 1 min ahead | |
-| False alarms per hour | |
+| AUROC, currently-normal minutes | 0.827 |
+| Onsets warned 1 min ahead | 0.737 (42 of 57) |
+| False alarms per hour | 10.6 |
 | Persistence baseline: onsets warned | 0 |
-
 Figures: `results/per_patient_f1.png`, `results/calibration.png`, `results/event_durations.png`, `results/feature_importance.png`
 
 ## Screenshots / demo
