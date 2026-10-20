@@ -143,3 +143,4 @@ TODO: add screenshots of the timeline tab and results tab, plus the demo video l
 - Open-source libraries listed in `requirements.txt`
 - R-peak detector inspired by Pan & Tompkins, *IEEE Trans. Biomed. Eng.* 1985
 - **AI tool disclosure:** Claude (Anthropic) was used to assist with code scaffolding, debugging and documentation. All team members reviewed and understand the code.
+  ## Record a02 could not be downloaded from PhysioNet during the event (server errors), so 34 of the 35 labelled recordings were used.
